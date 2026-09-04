@@ -1,21 +1,21 @@
 import math
 
-# def vendre(stock, produit, quantite):
-#     if produit in stock:
-#         if stock[produit] >= quantite:
-#             stock[produit] -= quantite
-#             print(f"Vente enregistree : {quantite} {produit}.")
-#         else:
-#             print(f"Stock insuffisant pour {produit} (disponible : {stock[produit]}).")
-#     else:
-#         print(f"Stock insuffisant pour {produit} (disponible : 0).")
-#
-# def produits_epuises(stock):
-#     epuises = []
-#     for produit, quantite in stock.items():
-#         if quantite == 0:
-#             epuises.append(produit)
-#     return epuises
+def vendre(stock, produit, quantite):
+    if produit in stock:
+        if stock[produit] >= quantite:
+            stock[produit] -= quantite
+            print(f"Vente enregistree : {quantite} {produit}.")
+        else:
+            print(f"Stock insuffisant pour {produit} (disponible : {stock[produit]}).")
+    else:
+        print(f"Stock insuffisant pour {produit} (disponible : 0).")
+
+def produits_epuises(stock):
+    epuises = []
+    for produit, quantite in stock.items():
+        if quantite == 0:
+            epuises.append(produit)
+    return epuises
 
 def main():
     notes = [12, 18, 7, 15, 9, 20, 3, 14]
