@@ -41,6 +41,11 @@ def traiter_valeur(value):
         print("Traitement termine.")
 
 
+def zero_except(a):
+        if not a > 0:
+            raise Exception("a is smaller than 0")
+
+
 
 def verifier_age(age):
     if age < 0:
@@ -55,6 +60,32 @@ def traiter_liste_de_valeurs(value):
         except ValueError:
             print(f"Log : value \"{v}\" invalid, exception relancee.")
         raise
+
+
+def ecrire_liste_courses(chemin, articles):
+    with open(chemin, "w", encoding="utf-8") as f:
+        for article in articles:
+            f.write(f"{article}\n")
+def ajouter_article(chemin, article):
+    with open(chemin, "a", encoding="utf-8") as f:
+        f.write(f"{article}\n")
+def lire_fichier(chemin):
+    with open(chemin, "r", encoding="utf-8") as f:
+        lignes = f.readlines()
+        print(lignes)
+        return lignes
+def compter_lignes(chemin):
+    nombre_lignes = 0
+    with open(chemin, "r", encoding="utf-8") as f:
+        for _ in f:
+            nombre_lignes += 1
+    print(f"Nombre de lignes : {nombre_lignes}")
+    return nombre_lignes
+def modes_a_identifier():
+    print("r  : lecture seule, déclenche une erreur si le fichier n'existe pas")
+    print("w  : écrasement, crée le fichier s'il n'existe pas")
+    print("a  : ajout, écrit à la suite du fichier")
+    print("x  : création exclusive, échoue si le fichier existe")
 
 
 
@@ -72,6 +103,8 @@ def main():
     # verifier_age(250)
     # verifier_age(-3)
     # traiter_liste_de_valeurs(["3", "9", "x", "5"])
+    zero_except(2)
+    zero_except(-3)
 
 
 if __name__ == "__main__":
